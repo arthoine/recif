@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Form;
+use App\Models\FormAchat;
 use Illuminate\Routing\Controller as BaseController;
 
-class FormController extends BaseController
+class FormAchatController extends BaseController
 {
     /**
      * Display a listing of the resource.
@@ -26,11 +26,11 @@ class FormController extends BaseController
      */
     public function store(Request $request)
     {
-        $modele = new Form;
+        $modele = new FormAchat;
 
+        $modele->nom = $request->input('nom');
+        $modele->prenom = $request->input('prenom');
         $modele->email = $request->input('email');
-        $modele->message = $request->input('message');
-        $modele->creator_client = $request->input('creator_client');
         $modele->save();
 
         return response()->json(['message' => 'Enregistrement créé avec succès.']);
