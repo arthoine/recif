@@ -31,6 +31,7 @@ class FormAchatController extends BaseController
         $modele->nom = $request->input('nom');
         $modele->prenom = $request->input('prenom');
         $modele->email = $request->input('email');
+        $modele->id_produit = $request->input('id_produit');
         $modele->save();
 
         return response()->json(['message' => 'Enregistrement créé avec succès.']);
